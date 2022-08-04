@@ -2,7 +2,7 @@
 #
 # bootstrap installs things.
 
-cd "$(dirname "$0")/.."
+cd "$(dirname "$0")"
 DOTFILES_ROOT=$(pwd -P)
 
 set -e
@@ -132,7 +132,7 @@ install_dotfiles () {
 
   for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
-    dst="$HOME/.$(basename "${src%.*}")"
+    dst="$HOME/$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
 }
