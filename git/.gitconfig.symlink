@@ -6,23 +6,28 @@
 	default = current
 [color]
 	ui = auto
-        diff = auto
-        status = auto
-        branch = auto
+    diff = auto
+    status = auto
+    branch = auto
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
 [alias]
-	pushto = !mygit push
+	ls = log --oneline -n 15
+	branch-name = !git rev-parse --abbrev-ref HEAD | tr -d '\n'
+	isgit = !(git rev-parse --git-dir > /dev/null 2>&1) && echo true || echo false
+	pushto = "!f() { \
+    	git push origin --force $(git branch-name):$1; \
+    }; f"
 	wip = !git add -A && git commit -m wip --no-verify
-        wippush = !git wip && git push --force
-        wipsync = !git wippush && git reset HEAD^
-        diffc = !git diff --compact-summary
-        discard = !git checkout -- .
-        rmtag = !git push --delete origin
-        resetorigin = !git fetch origin && git reset --hard origin/main && git clean -f -d
-        parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
+    wippush = !git wip && git push --force
+    wipsync = !git wippush && git reset HEAD^
+    diffc = !git diff --compact-summary
+    discard = !git checkout -- .
+    rmtag = !git push --delete origin
+    resetorigin = !git fetch origin && git reset --hard origin/main && git clean -f -d
+    parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 [url "git@github.com:"]
 	insteadOf = https://github.com/

@@ -1,0 +1,9 @@
+#!/bin/sh
+# Exit with 0 iff any ping reply is successful w/in configured timeout
+# Usage: ping-check <host> [timeout=4]
+
+HOST=$1
+
+if [[ -z "$2" ]]; then TIMEOUT=4; else TIMEOUT="$2"; fi
+
+ping -o -t ${TIMEOUT} ${HOST} > /dev/null 2>&1
