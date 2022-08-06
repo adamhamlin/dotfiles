@@ -1,27 +1,27 @@
-# This is Git's per-user configuration file.
+# This will be populated with user information by bootstrap script
 [user]
-	name = Adam C Hamlin
-	email = achamlin@gmail.com
+    name = Adam C Hamlin
+    email = achamlin@gmail.com
 [push]
-	default = current
+    default = current
 [color]
-	ui = auto
+    ui = auto
     diff = auto
     status = auto
     branch = auto
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+    required = true
 [alias]
-	ls = log --oneline -n 15
-	branch-name = !git rev-parse --abbrev-ref HEAD | tr -d '\n'
-	isgit = !(git rev-parse --git-dir > /dev/null 2>&1) && echo true || echo false
-	pushto = "!f() { \
-    	git push origin --force $(git branch-name):$1; \
+    ls = log --oneline -n 15
+    branch-name = !git rev-parse --abbrev-ref HEAD | tr -d '\n'
+    isgit = !(git rev-parse --git-dir > /dev/null 2>&1) && echo true || echo false
+    pushto = "!f() { \
+        git push origin --force $(git branch-name):$1; \
     }; f"
-	wip = !git add -A && git commit -m wip --no-verify
+    wip = !git add -A && git commit -m wip --no-verify
     wippush = !git wip && git push --force
     wipsync = !git wippush && git reset HEAD^
     diffc = !git diff --compact-summary
@@ -30,4 +30,4 @@
     resetorigin = !git fetch origin && git reset --hard origin/main && git clean -f -d
     parent = "!git show-branch | grep '*' | grep -v \"$(git rev-parse --abbrev-ref HEAD)\" | head -n1 | sed 's/.*\\[\\(.*\\)\\].*/\\1/' | sed 's/[\\^~].*//'"
 [url "git@github.com:"]
-	insteadOf = https://github.com/
+    insteadOf = https://github.com/
