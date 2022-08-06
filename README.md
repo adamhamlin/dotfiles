@@ -19,7 +19,7 @@ All other directories are **"topics"**, corresponding to specific programs/packa
 - **{topic}/\*.symlink**: Any file ending in `*.symlink` will be symlinked into
   your `$HOME` directory.
   >_Note this will overwrite an existing file with the same name._
-- **{topic}/\*.sh**: Any files ending in `.sh` get executed by your shell. For example, you might want to export applicable environment variables here.
+- **{topic}/\*.sh**: Any files ending in `.sh` get sourced by your shell. For example, you might want to export applicable environment variables.
 
 
 ## use it

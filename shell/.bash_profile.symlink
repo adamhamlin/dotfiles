@@ -2,16 +2,20 @@
 # Bash Profile
 ###################################################################################################
 
-# Source .bash_aliases if exists
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+export DOTFILES=$HOME/.dotfiles
+
+# For sanity, set the path first
+export PATH="$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+
+# Source .bash_login and .profile if they exist
+if [ -f ~/.bash_login ] ; then
+    . ~/.bash_login
+fi
+if [ -f ~/.profile ] ; then
+    . ~/.profile
 fi
 
-# Load the default .profile
-[[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
-
-# Set my prompt
-export PS1='\u: \w$ '
-
-# Use vim as default editor
-export EDITOR=vim
+# Source more stuff!
+. ~/.bash_env
+. ~/.bash_aliases

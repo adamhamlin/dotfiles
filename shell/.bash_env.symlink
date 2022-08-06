@@ -1,0 +1,7 @@
+# All general environment updates should go here
+
+# Set my prompt
+export PS1='\u: \w$ '
+
+# Use vim as default editor
+export EDITOR=vim
