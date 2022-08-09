@@ -27,8 +27,11 @@
                         # Docker
                         docker
                         # Tunneling
-                        ngrok
+                        #ngrok (needs unfree setting)
                         # Utils
+                        # vim (?)
+                        # hello
+                        # sudo
                         fd
                         jq
                         yq

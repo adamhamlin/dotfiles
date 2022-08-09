@@ -4,7 +4,7 @@
 
 export DOTFILES=$HOME/.dotfiles
 
-# For sanity, set the path first
+# Set the path first so we get access to all our binaries
 export PATH="$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
@@ -19,3 +19,7 @@ fi
 # Source more stuff!
 . ~/.bash_env
 . ~/.bash_aliases
+
+# Use nix
+. $DOTFILES/nix/use-nix.sh
+cd $HOME

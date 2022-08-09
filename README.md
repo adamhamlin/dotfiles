@@ -19,7 +19,7 @@ All other directories are **"topics"**, corresponding to specific programs/packa
 - **{topic}/\*.symlink**: Any file ending in `*.symlink` will be symlinked into
   your `$HOME` directory.
   >_Note this will overwrite an existing file with the same name._
-- **{topic}/\*.sh**: Any files ending in `.sh` get sourced by your shell. For example, you might want to export applicable environment variables.
+- **{topic}/\*.shell**: Any files ending in `.shell` get sourced by your shell. For example, you might want to export applicable environment variables or set up auto-completion.
 
 
 ## use it
@@ -28,9 +28,10 @@ All other directories are **"topics"**, corresponding to specific programs/packa
 git clone https://github.com/adamhamlin/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap
-# restart your shell
+# restart/reset your shell
+exec $SHELL
 ```
->_After changes to `~/.dotfiles`, re-run the bootstrap script again to re-sync your environment._
+>_Changes to `~/.dotfiles` should be reflected on next shell reset, but will need to run the bootstrap script again if adding or renaming dotfiles._
 
 ## todo
 - clean up bootstrap process/waterfall/nix/etc
