@@ -1,22 +1,13 @@
 # Nix Package Manager
 
-## Install (multi-user)
-```bash
-sh <(curl -L https://nixos.org/nix/install)
-```
+## Setup
+Your shell should automatically install, configure, and launch nix by sourcing the [use-nix.sh](./use-nix.sh) script.
 
-Add the following to `~/.config/nix/nix.conf`:
-```bash
-experimental-features = nix-command flakes # enable flakes
-auto-optimise-store = true # try to save space by reducing duplicate files with sym links
-```
-The [flake.nix](./flake.nix) file will define the packages to be installed.
->_See what's available at https://search.nixos.org/packages_
+## Packages
+The [flake.nix](./flake.nix) file defines the packages to be installed. See what's available at https://search.nixos.org/packages.
 
-## Use nix environment
-```bash
-nix develop
-```
+After making package changes, restart your shell OR exit the nix shell and run `nix develop`.
+
 ## Misc
 ```bash
 # You'll need to occasionally garbage collect:
