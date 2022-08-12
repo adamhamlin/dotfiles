@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
 # bootstrap script to install/sync dotfiles into target directory
 # Usage: ./boostrap.sh [destination=HOME]

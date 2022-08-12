@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Exits with success if current environment corresponds to an active nix shell
 

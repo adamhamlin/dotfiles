@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Swap the names of the two specified files
 # Usage: swap file1 file2

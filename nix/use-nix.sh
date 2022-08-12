@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # This script will first ensure nix+flakes is installed. Since we expect it to be sourced,
 # note that we restore the initial directory and exit on error setting.

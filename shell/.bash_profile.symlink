@@ -20,6 +20,11 @@ fi
 . ~/.bash_env
 . ~/.bash_aliases
 
+# Source all files ending in .source (whitespace in names not supported)
+for source_filename in $(find $DOTFILES -name "*.source") ; do
+    . $source_filename
+done
+
 # Use nix
 . $DOTFILES/nix/use-nix.sh
 cd $HOME

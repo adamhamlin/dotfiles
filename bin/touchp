@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #
 # Touch a file, but creating its directory path first if not exists
 mkdir -p "$(dirname "$1")" && touch "$1"

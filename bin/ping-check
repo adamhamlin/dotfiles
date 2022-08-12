@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 # Exit with 0 iff any ping reply is successful w/in configured timeout
 # Usage: ping-check <host> [timeout=4]
 

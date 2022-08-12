@@ -1,7 +1,7 @@
 # This will be populated with user information by bootstrap script
 [user]
-    name = Adam C Hamlin
-    email = achamlin@gmail.com
+    name = AUTHORNAME
+    email = AUTHOREMAIL
 [push]
     default = current
 [color]

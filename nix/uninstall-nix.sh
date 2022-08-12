@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 #
-# Uninstall nix. Mostly
+# Uninstall nix. Mostly for dev/test purposes.
 
 rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs}
 sudo rm -rf /nix

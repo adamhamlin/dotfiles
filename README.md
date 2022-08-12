@@ -2,13 +2,13 @@
 
 >NOTE: This is a WIP!!!
 
-This was includenced by https://github.com/holman/dotfiles.
+This was influenced by https://github.com/holman/dotfiles.
 
 ## design
 
 There are a few special directories...
 
-- **shell/**: All files required for your particular shell. Currently uses bash.
+- **shell/**: All files required for your particular shell. Currently using bash.
 - **nix/**: Contains a `flake.nix` file to configure/install packages for your environment. See [README](./nix/README.md).
 - **bin/**: Anything in `bin/` will get added to your `$PATH` and be made
   available everywhere.
@@ -19,7 +19,7 @@ All other directories are **"topics"**, corresponding to specific programs/packa
 - **{topic}/\*.symlink**: Any file ending in `*.symlink` will be symlinked into
   your `$HOME` directory.
   >_Note this will overwrite an existing file with the same name._
-- **{topic}/\*.shell**: Any files ending in `.shell` get sourced by your shell. For example, you might want to export applicable environment variables or set up auto-completion.
+- **{topic}/\*.source**: Any files ending in `.source` get sourced by your shell. For example, you might want to export applicable environment variables or set up auto-completion.
 
 
 ## use it
@@ -31,7 +31,7 @@ cd ~/.dotfiles
 # restart/reset your shell
 exec $SHELL
 ```
->_Changes to `~/.dotfiles` should be reflected on next shell reset, but will need to run the bootstrap script again if adding or renaming dotfiles._
+>_Changes to .source files or existing .symlink files should be reflected on next shell reset, but other changes may require you to re-run the bootstrap script._
 
 ## todo
 - clean up bootstrap process/waterfall/nix/etc
