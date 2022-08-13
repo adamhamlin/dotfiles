@@ -2,6 +2,7 @@
 
 ## Setup
 Your shell should automatically install, configure, and launch nix when it sources the [use-nix.sh](./use-nix.sh) script.
+>Currently employing the single-user install
 
 ## Packages
 The [flake.nix](./flake.nix) file defines the packages to be installed. See what's available at https://search.nixos.org/packages.

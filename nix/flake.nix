@@ -29,13 +29,12 @@
                         # Tunneling
                         #ngrok (needs unfree setting)
                         # Utils
-                        # vim (?)
-                        # hello
-                        # sudo
+                        vim
                         fd
                         jq
                         yq
                         gcc
+                        tailscale
                         # For formatting this file:
                         nixfmt
                     ];
