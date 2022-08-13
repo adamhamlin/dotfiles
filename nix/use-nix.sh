@@ -8,8 +8,7 @@ set -e
 pushd . > /dev/null
 cd "$DOTFILES/nix"
 
-NIX_CONF_DIR=${HOME}/.config/nix
-NIX_CONF=${NIX_CONF_DIR}/nix.conf
+NIX_CONF=${HOME}/.config/nix/nix.conf
 SOURCE_SCRIPT=${HOME}/.nix-profile/etc/profile.d/nix.sh
 
 export NIX_INSTALLER_NO_MODIFY_PROFILE=true
@@ -20,14 +19,15 @@ fi
 
 if ! command -v nix &> /dev/null ; then
     echo "Nix not installed. Installing nix..."
-    bash -c "$(curl -L https://nixos.org/nix/install)" # single-user install
+    bash -c "$(curl --fail -L https://nixos.org/nix/install)" # single-user install
     echo "Sourcing ${SOURCE_SCRIPT}..."
     . ${SOURCE_SCRIPT}
     nix-env --version
     echo "Nix installed! Configuring flakes..."
-    mkdir -p $NIX_CONF_DIR && touch $NIX_CONF
+    touchp $NIX_CONF
     echo "experimental-features = nix-command flakes" >> $NIX_CONF
     echo "auto-optimise-store = true" >> $NIX_CONF
+    echo "keep-outputs = true" >> $NIX_CONF
     echo "Nix + flakes installed and ready for use!"
 fi
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Output the current branch name and copy to the macOS clipboard.
+# Output the current branch name and copy to the macos clipboard.
 
 branch=$(git rev-parse --abbrev-ref HEAD)
 echo $branch

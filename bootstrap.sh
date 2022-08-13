@@ -35,8 +35,9 @@ setup_gitconfig () {
   if grep -q AUTHORNAME git/.gitconfig.symlink ; then
     info 'setup gitconfig with name/email'
 
-    user ' - What is your github author name?'
+    user ' - What is your github author name? [enter "skip" to configure later]'
     read -e git_authorname
+    if [ "$git_authorname" == "skip" ] ; then return 0 ; fi
     user ' - What is your github author email?'
     read -e git_authoremail
 

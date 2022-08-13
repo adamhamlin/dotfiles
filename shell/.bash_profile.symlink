@@ -5,7 +5,7 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Set the path first so we get access to all our binaries
-export PATH="$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$DOTFILES/bin:$DOTFILES/bin/macos:/usr/local/bin:/usr/local/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
 
 # Source .bash_login and .profile if they exist
