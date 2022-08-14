@@ -15,7 +15,6 @@
             let pkgs = import nixpkgs {
                 inherit system;
                 config.allowUnfree = true;
-                config.virtualisation.docker.enable = true;
             };
             in with pkgs; {
                 # Default dev shell used by 'nix develop'
@@ -31,8 +30,6 @@
                         skaffold
                         kubernetes-helm
                         k9s
-                        # Docker
-                        docker
                         # Tunneling
                         ngrok
                         # Editors

@@ -5,3 +5,4 @@
 #       line in your ~/.profile or ~/.bash_profile
 rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.config/nix}
 sudo rm -rf /nix
+rm -f $HOME/.dotfiles/nix/flake.lock
