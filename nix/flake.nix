@@ -12,7 +12,11 @@
     outputs = { self, nixpkgs, flake-utils, ... }:
         # eachDefaultSystem takes in the function to build the outputs for linux/macos
         flake-utils.lib.eachDefaultSystem (system:
-            let pkgs = import nixpkgs { inherit system; };
+            let pkgs = import nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+                config.virtualisation.docker.enable = true;
+            };
             in with pkgs; {
                 # Default dev shell used by 'nix develop'
                 devShell = mkShell {

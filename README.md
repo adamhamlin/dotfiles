@@ -19,6 +19,12 @@ All other directories are **"topics"**, corresponding to specific programs/packa
   >_Note this will overwrite an existing file with the same name._
 - **{topic}/\*.source**: Any files ending in `.source` get sourced by your shell. For example, you might want to export applicable environment variables or set up auto-completion.
 
+## prerequisites
+We're using `nix` for package management, but there are some specific requirements to even install nix. Ensure your system has the following before proceeding:
+- `sudo` _(and your user has sudo access)_
+- `git`
+- `curl`
+- `xz`
 
 ## use it
 
