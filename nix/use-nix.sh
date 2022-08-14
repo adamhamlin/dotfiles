@@ -8,32 +8,32 @@ set -e
 pushd . > /dev/null
 cd "$DOTFILES/nix"
 
-NIX_CONF=${HOME}/.config/nix/nix.conf
 SOURCE_SCRIPT=${HOME}/.nix-profile/etc/profile.d/nix.sh
+NIX_CONF=${HOME}/.config/nix/nix.conf
+NIXPKGS_CONF=${HOME}/.config/nixpkgs/config.nix
 
-export NIX_INSTALLER_NO_MODIFY_PROFILE=true
-
+# Source nix.sh
 if [ -e ${SOURCE_SCRIPT} ] ; then
     . ${SOURCE_SCRIPT}
 fi
 
+# Install nix as required
 if ! command -v nix &> /dev/null ; then
     echo "Nix not installed. Installing nix..."
+    export NIX_INSTALLER_NO_MODIFY_PROFILE=true
     bash -c "$(curl --fail -L https://nixos.org/nix/install)" # single-user install
     echo "Sourcing ${SOURCE_SCRIPT}..."
     . ${SOURCE_SCRIPT}
     nix-env --version
-    echo "Nix installed! Configuring flakes..."
-    touchp $NIX_CONF
-    echo "experimental-features = nix-command flakes" >> $NIX_CONF
-    echo "auto-optimise-store = true" >> $NIX_CONF
-    echo "keep-outputs = true" >> $NIX_CONF
-    echo "virtualisation.docker.enable = true" >> $NIX_CONF
-    echo "Nix + flakes installed and ready for use!"
+    echo "Nix installed!"
 fi
 
-# Turn off error setting so it won't affect the nix shell
+# Use latest config files
+touchp $NIXPKGS_CONF && cat config.nix >| $NIXPKGS_CONF
+touchp $NIX_CONF && cat nix.conf >| $NIX_CONF
+
+# Launch nix shell (turning off error setting so it won't exit on error)
 set +e
-is-nix-shell || NIXPKGS_ALLOW_UNFREE=1 nix develop
+is-nix-shell || nix develop
 
 popd > /dev/null
