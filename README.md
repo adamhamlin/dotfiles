@@ -37,7 +37,11 @@ exec $SHELL
 ```
 >_Changes to .source files or existing .symlink files should be reflected on next shell reset, but other changes may require you to re-run the bootstrap script._
 
+## caveats
+- While there is a nix package for `docker`, it really only is useful for NixOS. Better off just installing docker engine + docker desktop separately.
+
 ## todo
 
 - More mac vs linux switches
 - One-time setup install scripts? i.e., separate from shell sourcing?
+- Use NixOS?
