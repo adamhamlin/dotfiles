@@ -29,12 +29,11 @@ if ! command -v nix &> /dev/null ; then
     echo "auto-optimise-store = true" >> $NIX_CONF
     echo "keep-outputs = true" >> $NIX_CONF
     echo "virtualisation.docker.enable = true" >> $NIX_CONF
-    echo "allowUnfree = true" >> $NIX_CONF
     echo "Nix + flakes installed and ready for use!"
 fi
 
 # Turn off error setting so it won't affect the nix shell
 set +e
-is-nix-shell || nix develop
+is-nix-shell || NIXPKGS_ALLOW_UNFREE=1 nix develop
 
 popd > /dev/null
