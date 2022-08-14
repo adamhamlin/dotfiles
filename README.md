@@ -1,5 +1,7 @@
 # adam does dotfiles
 
+>_NOTE: This is a WIP!!!_
+
 This was influenced by https://github.com/holman/dotfiles.
 
 ## design

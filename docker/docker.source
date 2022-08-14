@@ -11,13 +11,3 @@ if ! id -nG "$USER" | grep -qw "docker" ; then
     echo "Adding $USER to group docker..."
     sudo usermod -aG docker $USER
 fi
-
-# Auto-completion
-if [ ! -f /etc/bash_completion.d/docker-compose ]; then
-    echo "Configuring Docker auto-complete..."
-    sudo curl \
-        --fail \
-        -L https://raw.githubusercontent.com/docker/compose/v2.7.0/contrib/completion/bash/docker-compose \
-        -o /etc/bash_completion.d/docker-compose
-        . /etc/bash_completion.d/docker-compose
-fi
