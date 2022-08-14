@@ -21,6 +21,7 @@
                         python310
                         # Kubernetes
                         kubectl
+                        kind
                         skaffold
                         kubernetes-helm
                         k9s
@@ -30,6 +31,7 @@
                         #ngrok (needs unfree setting)
                         # Utils
                         vim
+                        vscode
                         fd
                         jq
                         yq

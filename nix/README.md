@@ -7,7 +7,7 @@ Your shell should automatically install, configure, and launch nix when it sourc
 ## Packages
 The [flake.nix](./flake.nix) file defines the packages to be installed. See what's available at https://search.nixos.org/packages.
 
-After making package changes, restart your shell OR exit the nix shell and run `nix develop`.
+After making package changes, restart your shell OR exit the nix shell and run `nix develop` from this directory.
 
 ## Misc
 ```bash

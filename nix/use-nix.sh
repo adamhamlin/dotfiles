@@ -28,6 +28,7 @@ if ! command -v nix &> /dev/null ; then
     echo "experimental-features = nix-command flakes" >> $NIX_CONF
     echo "auto-optimise-store = true" >> $NIX_CONF
     echo "keep-outputs = true" >> $NIX_CONF
+    echo "virtualisation.docker.enable = true" >> $NIX_CONF
     echo "Nix + flakes installed and ready for use!"
 fi
 
