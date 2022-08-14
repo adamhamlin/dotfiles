@@ -13,7 +13,7 @@ if ! id -nG "$USER" | grep -qw "docker" ; then
 fi
 
 # Auto-completion
-if [ -f /etc/bash_completion.d/docker-compose ]; then
+if [ ! -f /etc/bash_completion.d/docker-compose ]; then
     echo "Configuring Docker auto-complete..."
     sudo curl \
         -L https://raw.githubusercontent.com/docker/compose/v2.7.0/contrib/completion/bash/docker-compose \
