@@ -28,15 +28,17 @@
                         # Docker
                         docker
                         # Tunneling
-                        #ngrok (needs unfree setting)
-                        # Utils
+                        ngrok
+                        # Editors
                         vim
                         vscode
+                        # VPN
+                        tailscale
+                        # Utils
                         fd
                         jq
                         yq
                         gcc
-                        tailscale
                         # For formatting this file:
                         nixfmt
                     ];

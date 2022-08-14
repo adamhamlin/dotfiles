@@ -29,6 +29,7 @@ if ! command -v nix &> /dev/null ; then
     echo "auto-optimise-store = true" >> $NIX_CONF
     echo "keep-outputs = true" >> $NIX_CONF
     echo "virtualisation.docker.enable = true" >> $NIX_CONF
+    echo "allowUnfree = true" >> $NIX_CONF
     echo "Nix + flakes installed and ready for use!"
 fi
 
