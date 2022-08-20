@@ -5,8 +5,11 @@
 export DOTFILES=$HOME/.dotfiles
 
 # Set the path first so we get access to all our binaries
-export PATH="$DOTFILES/bin:$DOTFILES/bin/macos:/usr/local/bin:/usr/local/sbin:$PATH"
+export PATH="$DOTFILES/bin:/usr/local/bin:/usr/local/sbin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+if is-darwin ; then
+    export PATH="$DOTFILES/bin/macos:$PATH"
+fi
 
 # Source .bash_login and .profile if they exist
 if [ -f ~/.bash_login ] ; then
@@ -16,7 +19,7 @@ if [ -f ~/.profile ] ; then
     . ~/.profile
 fi
 
-# Source more stuff!
+# Source more stuff
 . ~/.bash_env
 . ~/.bash_aliases
 
@@ -25,6 +28,7 @@ for source_filename in $(find $DOTFILES -name "*.source") ; do
     . $source_filename
 done
 
-# Use nix
-. $DOTFILES/nix/use-nix.sh
-cd $HOME
+# Nix setup
+if [ "$USE_NIX" == "true" ] ; then
+    . $DOTFILES/nix/use-nix.sh
+fi

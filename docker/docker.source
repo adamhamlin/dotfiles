@@ -3,7 +3,7 @@
 # Setup for docker
 
 # Ensure docker daemon can start automatically and can be used without sudo
-if ! grep -q -E "^docker:" /etc/group; then
+if ! grep -q -E "^docker:" /etc/group ; then
     echo "Creating docker group..."
     sudo groupadd docker
 fi

@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+#
+# Exits with success if current operating system is darwin (macOS)
+
+if [[ ! "$OSTYPE" =~ darwin ]] ; then
+    exit 1
+fi

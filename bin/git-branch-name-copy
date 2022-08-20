@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Output the current branch name and copy to the macos clipboard.
+
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+echo $BRANCH
+if is-darwin ; then
+    echo $BRANCH | tr -d '\n' | tr -d ' ' | pbcopy | echo '==> Branch name copied to clipboard'
+fi

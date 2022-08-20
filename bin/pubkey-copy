@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Print public key and copy to mac clipboard as applicable
+
+cat ~/.ssh/id_rsa.pub
+if is-darwin ; then
+    cat ~/.ssh/id_rsa.pub | tr -d '\n' | pbcopy | echo '==> Public key copied to clipboard'
+fi

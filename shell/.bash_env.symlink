@@ -1,8 +1,12 @@
-# All general environment updates should go here
+###################################################################################################
+# Bash Environment Variables
+###################################################################################################
 
 # Set my prompt
-NIX_PROMPT_TAG=$(is-nix-shell && echo " [NIX]")
-export PS1="\u${NIX_PROMPT_TAG}: \w$ "
+export PS1='\u: \w$ '
 
 # Use vim as default editor
 export EDITOR=vim
+
+# Use nix to install packages
+export USE_NIX=true

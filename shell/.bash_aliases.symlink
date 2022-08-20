@@ -1,4 +1,6 @@
-# My aliases
+###################################################################################################
+# Bash Aliases
+###################################################################################################
 
 alias ll='ls -lahF'
 alias lash='ls -laSh'
@@ -7,3 +9,4 @@ alias sshi='ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias scpi='scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null'
 alias yq='yq eval -P'
 alias refresh='exec $SHELL -l'
+alias hms='home-manager switch'

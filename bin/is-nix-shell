@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-#
-# Exits with success if current environment corresponds to an active nix shell
-
-# TODO: Is there a more satisfying way to check this?
-if [ -z "$NIX_GCROOT" ] ; then
-    exit 1
-fi
