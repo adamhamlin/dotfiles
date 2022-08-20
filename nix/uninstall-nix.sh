@@ -6,7 +6,9 @@
 
 set -e
 
-rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.config/nix}
+echo "Uninstalling nix..."
+
+rm -rf $HOME/{.nix-channels,.nix-defexpr,.nix-profile,.config/nixpkgs,.config/nix,.cache/nix}
 sudo rm -rf /nix
 
 echo "Successfully uninstalled nix!"

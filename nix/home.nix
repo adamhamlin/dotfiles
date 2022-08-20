@@ -11,13 +11,17 @@
     # Let Home Manager install and manage itself.
     programs.home-manager.enable = true;
 
-    # Add home-manager-help tool
+    # Add home-manager-help tools
     manual.html.enable = true;
+    manual.json.enable = true;
+
+    # Set up some things like XDG_DATA_DIRS (not sure effect on darwin or non-Ubuntu)
+    targets.genericLinux.enable = true;
 
     nixpkgs.config = {
         allowUnfree = true;
         manual.manpages.enable = true;
-        #virtualisation.docker.enable = true;
+        # virtualisation.docker.enable = true;
     };
 
     systemd.user.startServices = true;
@@ -26,9 +30,13 @@
     home.packages = [
         # Canary
         pkgs.cowsay
-        # Languages
+        # Languages & Suport
         pkgs.nodejs-16_x
         pkgs.python310
+        pkgs.jdk
+        pkgs.scala
+        pkgs.maven
+        pkgs.go
         # Kubernetes
         pkgs.kubectl
         pkgs.kind

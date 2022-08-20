@@ -10,10 +10,6 @@ SOURCE_SCRIPT=${HOME}/.nix-profile/etc/profile.d/nix.sh
 NIX_CONF=${HOME}/.config/nix/nix.conf
 HOME_NIX=${HOME}/.config/nixpkgs/home.nix
 
-# Use latest config files
-touchp $NIX_CONF && cat nix.conf >| $NIX_CONF
-touchp $HOME_NIX && cat home.nix >| $HOME_NIX
-
 # Set up NIX_PATH for home-manager
 export NIX_PATH=$HOME/.nix-defexpr/channels
 
@@ -24,6 +20,10 @@ fi
 
 # Install nix as required
 if ! command -v nix &> /dev/null ; then
+    # Symlink the config files
+    touchp $NIX_CONF && ln -sf $PWD/nix.conf $NIX_CONF
+    touchp $HOME_NIX && ln -sf $PWD/home.nix $HOME_NIX
+
     echo "Nix not installed. Installing nix..."
     echo
     export NIX_INSTALLER_NO_MODIFY_PROFILE=true
