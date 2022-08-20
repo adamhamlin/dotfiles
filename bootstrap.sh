@@ -41,8 +41,9 @@ setup_gitconfig () {
     user ' - What is your github author email?'
     read -e git_authoremail
 
-    # TODO: Bespoke this based on OSTYPE (can't use '' after  -i except on macos)
-    sed -i '' -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/.gitconfig.symlink > /dev/null
+    # Darwin and linux handle the in-place option a little differently...
+    local in_place_option=$(if is-darwin ; then echo "-i ''" ; else echo "-i" ; fi)
+    sed ${in_place_option} -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/.gitconfig.symlink > /dev/null
 
     success 'gitconfig'
   fi
