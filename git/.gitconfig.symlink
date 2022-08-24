@@ -19,10 +19,10 @@
     branch-name = !git rev-parse --abbrev-ref HEAD | tr -d '\n'
     isgit = !(git rev-parse --git-dir > /dev/null 2>&1) && echo true || echo false
     pushto = "!f() { \
-        git push origin --force $(git branch-name):$1; \
+        git push origin --force --no-verify $(git branch-name):$1; \
     }; f"
     wip = !git add -A && git commit -m wip --no-verify
-    wippush = !git wip && git push --force
+    wippush = !git wip && git push --force --no-verify
     wipsync = !git wippush && git reset HEAD^
     diffc = !git diff --compact-summary
     discard = !git checkout -- .

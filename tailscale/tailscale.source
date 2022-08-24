@@ -1,2 +1,2 @@
-# For example, my raspberry pi hostname would be: raspi.${TAILSCALE_HOST_SUFFIX}
+# For example, my raspberry pi hostname would be: raspi.$TAILSCALE_HOST
 export TAILSCALE_HOST=achamlin.gmail.com.beta.tailscale.net
